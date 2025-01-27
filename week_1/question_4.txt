@@ -1,0 +1,15 @@
+SELECT
+	trip_distance, lpep_pickup_datetime
+FROM 
+    green_taxi_trips t
+JOIN 
+    zones zpu ON t."PULocationID" = zpu."LocationID"
+JOIN
+    zones zdo ON t."DOLocationID" = zdo."LocationID"
+	
+-- -- WHERE trip_distance > 1 AND trip_distance <= 3
+--   WHERE t.lpep_pickup_datetime >= '2019-10-01'
+--   AND t.lpep_dropoff_datetime < '2019-11-01'
+
+ORDER BY trip_distance desc
+LIMIT 100;
